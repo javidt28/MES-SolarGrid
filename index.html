@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/logo-footer.png" type="image/png">
+  <meta name="description" content="Live solar monitoring for Modern Electrical Solutions. View real-time Victron VRM dashboards for installations across Grenada.">
   <title>Solar Performance Portal — Modern Electrical Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,17 +12,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="logo">Modern Electrical Solutions</h1>
-      <p class="tagline">Solar Performance Portal</p>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Modern Electrical Solutions"></a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Portal</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false"></button>
+      </nav>
+      <div class="hero">
+        <h1 class="logo">Solar Performance Portal</h1>
+        <p class="tagline">Real-time monitoring for our installed Victron systems</p>
+      </div>
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" id="main-content">
     <section class="portfolio-section">
       <h2 class="section-title">Live VRM Installations</h2>
-      <p class="section-subtitle">Real-time monitoring across our portfolio</p>
+      <p class="section-subtitle">Select a system to view its live dashboard</p>
+      <div class="portal-intro" id="portal-intro" aria-hidden="true">
+        <span><strong id="intro-count">10</strong> installations</span>
+        <span class="intro-dot">•</span>
+        <span>Real-time data</span>
+        <span class="intro-dot">•</span>
+        <span>Grenada</span>
+      </div>
       <div id="systems-grid" class="systems-grid" role="list">
         <!-- Cards injected by app.js -->
       </div>
@@ -28,13 +50,32 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Modern Electrical Solutions. All rights reserved.</p>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo"><img src="assets/images/logo-footer.png" alt="Modern Electrical Solutions"></a>
+      <div class="footer-nav">
+        <a href="index.html">Portal</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://modernelectrical.gd/" target="_blank" rel="noopener noreferrer">Main site</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://wa.me/14735340037" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WhatsApp</a>
+        <a href="https://www.facebook.com/ModernElectricalSolution/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+        <a href="https://www.instagram.com/modernelectrical.gd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Modern Electrical Solutions. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="assets/systems.js"></script>
   <script src="app.js"></script>
+  <script src="assets/nav.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    if (typeof systems !== 'undefined' && document.getElementById('intro-count')) {
+      document.getElementById('intro-count').textContent = systems.length;
+    }
   </script>
 </body>
 </html>

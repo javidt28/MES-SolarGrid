@@ -41,9 +41,16 @@
     return div.innerHTML;
   }
 
+  var breadcrumbEl = document.getElementById('breadcrumb-name');
+  var iframeWrap = document.getElementById('iframe-wrap');
+  var iframeLoading = document.getElementById('iframe-loading');
+  var headerTitleEl = document.getElementById('header-system-name');
+
   if (system && titleEl) {
     titleEl.textContent = system.name;
     document.title = system.name + ' — Modern Electrical Solutions';
+    if (breadcrumbEl) breadcrumbEl.textContent = system.name;
+    if (headerTitleEl) headerTitleEl.textContent = system.name;
 
     if (detailsSection && detailsList) {
       var rows = [
@@ -66,28 +73,49 @@
         detailsList.appendChild(dt);
         detailsList.appendChild(dd);
       });
-      detailsSection.style.display = detailsList.children.length ? 'block' : 'none';
     }
+    if (detailsSection) detailsSection.style.display = 'block';
 
     var shareUrl = system.vrm && system.vrm !== '#' ? system.vrm : '';
     var embedUrl = system.embed || shareUrl;
 
     if (embedUrl) {
-      iframeEl.src = embedUrl;
       iframeEl.style.display = 'block';
+      if (iframeLoading) iframeLoading.style.display = 'flex';
+      iframeEl.onload = function () {
+        if (iframeWrap) iframeWrap.classList.add('loaded');
+        if (iframeLoading) iframeLoading.style.display = 'none';
+      };
+      iframeEl.src = embedUrl;
+      if (iframeWrap && !iframeEl.onload) iframeWrap.classList.add('loaded');
     } else {
+      if (iframeLoading) iframeLoading.style.display = 'none';
+      if (iframeWrap) iframeWrap.classList.add('loaded');
       placeholderEl.style.display = 'block';
     }
 
     if (openBtn && shareUrl) {
       openBtn.href = shareUrl;
+      openBtn.setAttribute('target', '_blank');
+      openBtn.setAttribute('rel', 'noopener noreferrer');
       openBtn.style.display = 'inline-flex';
+      openBtn.onclick = function (e) {
+        e.preventDefault();
+        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      };
     } else if (openBtn) {
       openBtn.style.display = 'none';
     }
   } else if (titleEl) {
     titleEl.textContent = 'System not found';
+    if (breadcrumbEl) breadcrumbEl.textContent = 'Not found';
+    if (headerTitleEl) headerTitleEl.textContent = 'System not found';
+    var liveIndicator = document.getElementById('live-indicator');
+    if (liveIndicator) liveIndicator.setAttribute('aria-hidden', 'true');
+    if (iframeLoading) iframeLoading.style.display = 'none';
+    if (iframeWrap) iframeWrap.classList.add('loaded');
     placeholderEl.style.display = 'block';
+    placeholderEl.innerHTML = 'This installation could not be found. <a href="../index.html">Return to the portal</a> to see all systems.';
     if (openBtn) openBtn.style.display = 'none';
   }
 })();

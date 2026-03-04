@@ -40,7 +40,7 @@
     card.innerHTML =
       '<h3 class="card-name">' + escapeHtml(system.name) + '</h3>' +
       '<p class="card-type">' + escapeHtml(system.type) + '</p>' +
-      '<a href="' + escapeAttr(href) + '" class="card-cta">View Live Dashboard</a>';
+      '<a href="' + escapeAttr(href) + '" class="card-cta">View dashboard</a>';
 
     grid.appendChild(card);
   });

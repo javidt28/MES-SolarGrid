@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/images/logo-footer.png" type="image/png">
   <title>System — Modern Electrical Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,32 +11,53 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body class="page-system" data-slug="kostantin-lashkevich">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="site-header">
     <div class="header-inner">
-      <a href="../index.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
-      <h1 class="logo">Modern Electrical Solutions</h1>
-      <p class="tagline">Solar Performance Portal</p>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html" class="nav-logo"><img src="../assets/images/logo.png" alt="Modern Electrical Solutions"></a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Portal</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false"></button>
+      </nav>
+      <a href="../index.html" class="back-link" aria-label="Back to Portal">← Back to Portal</a>
+      <h1 class="logo page-system-logo" id="header-system-name">System Dashboard</h1>
+      <p class="tagline">Live VRM data</p>
     </div>
   </header>
 
-  <main class="main-content">
+  <main class="main-content" id="main-content">
+    <a href="../index.html" class="back-link-content" aria-label="Back to Portal">← Back to Portal</a>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Portal</a><span> / </span><span id="breadcrumb-name">—</span></nav>
     <h2 id="system-name" class="system-title">Loading…</h2>
     <section id="system-details" class="system-details" aria-label="System details" style="display: none;">
-      <h3 class="system-details-title">System details</h3>
-      <dl id="system-details-list" class="system-details-list"></dl>
+      <div class="system-details-main">
+        <h3 class="system-details-title">System details</h3>
+        <dl id="system-details-list" class="system-details-list"></dl>
+        <div class="system-details-actions">
+          <a id="vrm-open-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-vrm-open" style="display: none;">Open in VRM</a>
+        </div>
+      </div>
+      <p class="live-indicator" role="status" aria-live="polite" id="live-indicator">
+        <span class="live-indicator-dot"></span>
+        <span>Live</span>
+      </p>
     </section>
-    <div class="iframe-wrap">
+    <div class="iframe-wrap" id="iframe-wrap">
+      <div class="iframe-loading" id="iframe-loading">Loading dashboard…</div>
       <div id="placeholder" class="placeholder-message" style="display: none;">
         VRM dashboard link will appear here once configured.
       </div>
       <iframe id="vrm-iframe" class="vrm-iframe" title="VRM Dashboard" style="display: none;"></iframe>
     </div>
-    <div class="vrm-open-wrap">
-      <a id="vrm-open-btn" href="#" target="_blank" rel="noopener noreferrer" class="vrm-open" style="display: none;">Open in VRM</a>
-    </div>
   </main>
 
   <script src="../assets/systems.js"></script>
   <script src="system-page.js"></script>
+  <script src="../assets/nav.js"></script>
 </body>
 </html>
