@@ -22,6 +22,7 @@
   --radius-sm: 10px;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --focus-ring: 0 0 0 3px rgba(14, 165, 233, 0.4);
+  --whatsapp-green: #25D366;
 }
 
 *,
@@ -458,6 +459,39 @@ textarea:focus-visible {
 .footer-copy {
   margin: 0;
   color: var(--text-muted);
+}
+
+/* ----- Floating WhatsApp button ----- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--whatsapp-green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+  color: var(--white);
+}
+.whatsapp-float:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.5);
+}
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
 }
 
 /* ----- Content pages (About, Services, Contact) ----- */
