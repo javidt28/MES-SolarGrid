@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Performance Portal — Modern Electrical Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">Modern Electrical Solutions</h1>
+      <p class="tagline">Solar Performance Portal</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="portfolio-section">
+      <h2 class="section-title">Live VRM Installations</h2>
+      <p class="section-subtitle">Real-time monitoring across our portfolio</p>
+      <div id="systems-grid" class="systems-grid" role="list">
+        <!-- Cards injected by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Modern Electrical Solutions. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/systems.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

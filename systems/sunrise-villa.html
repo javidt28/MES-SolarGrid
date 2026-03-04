@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System — Modern Electrical Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="page-system" data-slug="sunrise-villa">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
+      <h1 class="logo">Modern Electrical Solutions</h1>
+      <p class="tagline">Solar Performance Portal</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h2 id="system-name" class="system-title">Loading…</h2>
+    <section id="system-details" class="system-details" aria-label="System details" style="display: none;">
+      <h3 class="system-details-title">System details</h3>
+      <dl id="system-details-list" class="system-details-list"></dl>
+    </section>
+    <div class="iframe-wrap">
+      <div id="placeholder" class="placeholder-message" style="display: none;">
+        VRM dashboard link will appear here once configured.
+      </div>
+      <iframe id="vrm-iframe" class="vrm-iframe" title="VRM Dashboard" style="display: none;"></iframe>
+    </div>
+    <div class="vrm-open-wrap">
+      <a id="vrm-open-btn" href="#" target="_blank" rel="noopener noreferrer" class="vrm-open" style="display: none;">Open in VRM</a>
+    </div>
+  </main>
+
+  <script src="../assets/systems.js"></script>
+  <script src="system-page.js"></script>
+</body>
+</html>
